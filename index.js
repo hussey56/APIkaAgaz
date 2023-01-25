@@ -15,7 +15,7 @@ app.use('/api/orders',require('./Routes/order'));
 app.use('/api/files',require('./Routes/file'));
 app.use(express.static('images'))
 app.get('/images/:image', (req, res) => {
-  res.sendFile(`${__dirname}/uploads/${req.params.image}`)
+  res.sendFile(`uploads/${req.params.image}`,{root:__dirname})
 })
 
 app.listen(process.env.PORT || 5000, () => {
